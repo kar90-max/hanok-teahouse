@@ -1,0 +1,356 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/hud_coin_bar.png" id="2_coin"]
+[ext_resource type="Texture2D" path="res://assets/ui/hud_heart_bar.png" id="3_heart"]
+[ext_resource type="Texture2D" path="res://assets/icons/mugwort.png" id="4_mugwort"]
+[ext_resource type="Texture2D" path="res://assets/icons/rice.png" id="5_rice"]
+[ext_resource type="Texture2D" path="res://assets/icons/mugwort_injeolmi.png" id="6_injeolmi"]
+[ext_resource type="Texture2D" path="res://assets/icons/songpyeon.png" id="7_songpyeon"]
+[ext_resource type="Texture2D" path="res://assets/icons/green_tea.png" id="8_green_tea"]
+[ext_resource type="Texture2D" path="res://assets/ui/btn_book.png" id="9_book"]
+[ext_resource type="Texture2D" path="res://assets/ui/btn_tteok.png" id="10_tteok"]
+[ext_resource type="Texture2D" path="res://assets/ui/btn_tea.png" id="11_tea"]
+[ext_resource type="Texture2D" path="res://assets/ui/btn_decor.png" id="12_decor"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.988235, 0.94902, 0.882353, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.419608, 0.278431, 0.180392, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0.1, 0.06, 0.03, 0.4)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pantry"]
+bg_color = Color(0.980392, 0.921569, 0.815686, 0.94)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.541176, 0.396078, 0.266667, 0.85)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.992157, 0.854902, 0.686275, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.447059, 0.301961, 0.196078, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(1, 0.901961, 0.752941, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.447059, 0.301961, 0.196078, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.929412, 0.760784, 0.580392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.447059, 0.301961, 0.196078, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[node name="HUD" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="TopBar" type="Control" parent="."]
+mouse_filter = 2
+
+[node name="CoinBar" type="TextureRect" parent="TopBar"]
+offset_left = 36.0
+offset_top = 26.0
+offset_right = 366.0
+offset_bottom = 180.0
+mouse_filter = 2
+texture = ExtResource("2_coin")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Value" type="Label" parent="TopBar/CoinBar"]
+offset_left = 146.0
+offset_top = 34.0
+offset_right = 322.0
+offset_bottom = 110.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.352941, 0.235294, 0.152941, 1)
+theme_override_font_sizes/font_size = 46
+text = "0"
+
+[node name="HeartBar" type="TextureRect" parent="TopBar"]
+offset_left = 714.0
+offset_top = 26.0
+offset_right = 1044.0
+offset_bottom = 180.0
+mouse_filter = 2
+texture = ExtResource("3_heart")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Value" type="Label" parent="TopBar/HeartBar"]
+offset_left = 146.0
+offset_top = 34.0
+offset_right = 322.0
+offset_bottom = 110.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.352941, 0.235294, 0.152941, 1)
+theme_override_font_sizes/font_size = 46
+text = "0"
+
+[node name="Pantry" type="PanelContainer" parent="."]
+offset_left = 288.0
+offset_top = 188.0
+offset_right = 792.0
+offset_bottom = 322.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pantry")
+
+[node name="Margin" type="MarginContainer" parent="Pantry"]
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="Slots" type="HBoxContainer" parent="Pantry/Margin"]
+mouse_filter = 2
+theme_override_constants/separation = 22
+
+[node name="Mugwort" type="VBoxContainer" parent="Pantry/Margin/Slots"]
+custom_minimum_size = Vector2(76, 0)
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="Icon" type="TextureRect" parent="Pantry/Margin/Slots/Mugwort"]
+custom_minimum_size = Vector2(64, 64)
+mouse_filter = 2
+texture = ExtResource("4_mugwort")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Count" type="Label" parent="Pantry/Margin/Slots/Mugwort"]
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.352941, 0.235294, 0.152941, 1)
+theme_override_font_sizes/font_size = 26
+text = "×0"
+horizontal_alignment = 1
+
+[node name="Rice" type="VBoxContainer" parent="Pantry/Margin/Slots"]
+custom_minimum_size = Vector2(76, 0)
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="Icon" type="TextureRect" parent="Pantry/Margin/Slots/Rice"]
+custom_minimum_size = Vector2(64, 64)
+mouse_filter = 2
+texture = ExtResource("5_rice")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Count" type="Label" parent="Pantry/Margin/Slots/Rice"]
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.352941, 0.235294, 0.152941, 1)
+theme_override_font_sizes/font_size = 26
+text = "×0"
+horizontal_alignment = 1
+
+[node name="Injeolmi" type="VBoxContainer" parent="Pantry/Margin/Slots"]
+custom_minimum_size = Vector2(76, 0)
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="Icon" type="TextureRect" parent="Pantry/Margin/Slots/Injeolmi"]
+custom_minimum_size = Vector2(64, 64)
+mouse_filter = 2
+texture = ExtResource("6_injeolmi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Count" type="Label" parent="Pantry/Margin/Slots/Injeolmi"]
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.352941, 0.235294, 0.152941, 1)
+theme_override_font_sizes/font_size = 26
+text = "×0"
+horizontal_alignment = 1
+
+[node name="Songpyeon" type="VBoxContainer" parent="Pantry/Margin/Slots"]
+custom_minimum_size = Vector2(76, 0)
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="Icon" type="TextureRect" parent="Pantry/Margin/Slots/Songpyeon"]
+custom_minimum_size = Vector2(64, 64)
+mouse_filter = 2
+texture = ExtResource("7_songpyeon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Count" type="Label" parent="Pantry/Margin/Slots/Songpyeon"]
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.352941, 0.235294, 0.152941, 1)
+theme_override_font_sizes/font_size = 26
+text = "×0"
+horizontal_alignment = 1
+
+[node name="GreenTea" type="VBoxContainer" parent="Pantry/Margin/Slots"]
+custom_minimum_size = Vector2(76, 0)
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="Icon" type="TextureRect" parent="Pantry/Margin/Slots/GreenTea"]
+custom_minimum_size = Vector2(64, 64)
+mouse_filter = 2
+texture = ExtResource("8_green_tea")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Count" type="Label" parent="Pantry/Margin/Slots/GreenTea"]
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.352941, 0.235294, 0.152941, 1)
+theme_override_font_sizes/font_size = 26
+text = "×0"
+horizontal_alignment = 1
+
+[node name="Toast" type="Label" parent="."]
+offset_left = 120.0
+offset_top = 1520.0
+offset_right = 960.0
+offset_bottom = 1640.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.980392, 0.913725, 1)
+theme_override_colors/font_outline_color = Color(0.243137, 0.152941, 0.0980392, 0.9)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 38
+text = "손님을 맞아 보세요"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BottomBar" type="Control" parent="."]
+offset_top = 1730.0
+offset_right = 1080.0
+offset_bottom = 1960.0
+mouse_filter = 2
+
+[node name="BtnBook" type="TextureButton" parent="BottomBar"]
+offset_left = 80.0
+offset_top = 8.0
+offset_right = 250.0
+offset_bottom = 178.0
+texture_normal = ExtResource("9_book")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BtnTteok" type="TextureButton" parent="BottomBar"]
+offset_left = 330.0
+offset_top = 8.0
+offset_right = 500.0
+offset_bottom = 178.0
+texture_normal = ExtResource("10_tteok")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BtnTea" type="TextureButton" parent="BottomBar"]
+offset_left = 580.0
+offset_top = 8.0
+offset_right = 750.0
+offset_bottom = 178.0
+texture_normal = ExtResource("11_tea")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BtnDecor" type="TextureButton" parent="BottomBar"]
+offset_left = 830.0
+offset_top = 8.0
+offset_right = 1000.0
+offset_bottom = 178.0
+texture_normal = ExtResource("12_decor")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Popup" type="Control" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dim" type="ColorRect" parent="Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.137255, 0.0901961, 0.0588235, 0.62)
+
+[node name="Panel" type="PanelContainer" parent="Popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = -380.0
+offset_right = 430.0
+offset_bottom = 380.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Popup/Panel"]
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 40
+
+[node name="VBox" type="VBoxContainer" parent="Popup/Panel/Margin"]
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="Popup/Panel/Margin/VBox"]
+theme_override_colors/font_color = Color(0.352941, 0.235294, 0.152941, 1)
+theme_override_font_sizes/font_size = 52
+text = "제목"
+horizontal_alignment = 1
+
+[node name="Body" type="Label" parent="Popup/Panel/Margin/VBox"]
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.301961, 0.203922, 0.145098, 1)
+theme_override_constants/line_spacing = 10
+theme_override_font_sizes/font_size = 32
+text = "내용"
+autowrap_mode = 3
+
+[node name="Close" type="Button" parent="Popup/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 100)
+theme_override_colors/font_color = Color(0.352941, 0.235294, 0.152941, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+text = "닫기"

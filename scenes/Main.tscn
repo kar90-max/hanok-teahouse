@@ -1,0 +1,127 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/tiles/grass_tile.png" id="2_grass"]
+[ext_resource type="Texture2D" path="res://assets/tiles/courtyard.png" id="3_courtyard"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fence_flowers.png" id="4_fence"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stepping_stones.png" id="5_stones"]
+[ext_resource type="PackedScene" path="res://scenes/Station.tscn" id="6_station"]
+[ext_resource type="PackedScene" path="res://scenes/Shopkeeper.tscn" id="7_shopkeeper"]
+[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="8_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/hanok_counter.png" id="9_counter"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stone_mortar.png" id="10_mortar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/bamboo_steamer.png" id="11_steamer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tea_set.png" id="12_teaset"]
+[ext_resource type="Texture2D" path="res://assets/sprites/planter_mugwort.png" id="13_planter_mugwort"]
+[ext_resource type="Texture2D" path="res://assets/sprites/planter_rice.png" id="14_planter_rice"]
+[ext_resource type="Texture2D" path="res://assets/icons/mugwort.png" id="15_icon_mugwort"]
+[ext_resource type="Texture2D" path="res://assets/icons/rice.png" id="16_icon_rice"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="World" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Grass" type="Sprite2D" parent="World"]
+z_index = -100
+texture_repeat = 2
+texture = ExtResource("2_grass")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 1920)
+
+[node name="Courtyard" type="Sprite2D" parent="World"]
+z_index = -50
+position = Vector2(540, 850)
+scale = Vector2(1.15, 1.25)
+texture = ExtResource("3_courtyard")
+
+[node name="SteppingStones" type="Sprite2D" parent="World" groups=["decor"]]
+z_index = -20
+position = Vector2(540, 1310)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_stones")
+
+[node name="FenceLeft" type="Sprite2D" parent="World" groups=["decor"]]
+z_index = -20
+position = Vector2(110, 1700)
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("4_fence")
+
+[node name="FenceRight" type="Sprite2D" parent="World" groups=["decor"]]
+z_index = -20
+position = Vector2(965, 1700)
+scale = Vector2(0.44, 0.44)
+flip_h = true
+texture = ExtResource("4_fence")
+
+[node name="Counter" parent="World" instance=ExtResource("6_station")]
+position = Vector2(540, 790)
+mode = "counter"
+station_id = "counter"
+display_name = "떡집"
+texture = ExtResource("9_counter")
+art_scale = 0.7
+work_offset = Vector2(0, 60)
+
+[node name="Mortar" parent="World" instance=ExtResource("6_station")]
+position = Vector2(320, 1065)
+station_id = "mortar"
+display_name = "절구"
+texture = ExtResource("10_mortar")
+art_scale = 0.52
+recipe_id = "mugwort_injeolmi"
+work_offset = Vector2(0, 110)
+
+[node name="Steamer" parent="World" instance=ExtResource("6_station")]
+position = Vector2(555, 1085)
+station_id = "steamer"
+display_name = "찜기"
+texture = ExtResource("11_steamer")
+art_scale = 0.52
+recipe_id = "songpyeon"
+work_offset = Vector2(0, 110)
+
+[node name="TeaSet" parent="World" instance=ExtResource("6_station")]
+position = Vector2(800, 1070)
+station_id = "tea_set"
+display_name = "다기"
+texture = ExtResource("12_teaset")
+art_scale = 0.48
+recipe_id = "green_tea"
+work_offset = Vector2(0, 110)
+
+[node name="MugwortPlanter" parent="World" instance=ExtResource("6_station")]
+position = Vector2(120, 1390)
+mode = "harvest"
+station_id = "mugwort_planter"
+display_name = "쑥밭"
+texture = ExtResource("13_planter_mugwort")
+badge_icon = ExtResource("15_icon_mugwort")
+art_scale = 0.48
+harvest_item = "mugwort"
+cooldown = 6.5
+work_offset = Vector2(110, 55)
+
+[node name="RicePlanter" parent="World" instance=ExtResource("6_station")]
+position = Vector2(965, 1410)
+mode = "harvest"
+station_id = "rice_planter"
+display_name = "쌀밭"
+texture = ExtResource("14_planter_rice")
+badge_icon = ExtResource("16_icon_rice")
+art_scale = 0.48
+harvest_item = "rice"
+cooldown = 8.0
+work_offset = Vector2(-105, 55)
+
+[node name="Shopkeeper" parent="World" instance=ExtResource("7_shopkeeper")]
+position = Vector2(540, 1300)
+
+[node name="Effects" type="Node2D" parent="World"]
+z_index = 100
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("8_hud")]

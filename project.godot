@@ -1,0 +1,44 @@
+; Engine configuration file.
+; 한옥 떡집·다방 — Godot 4.3 (portrait mobile)
+
+config_version=5
+
+[application]
+
+config/name="한옥 떡집 다방"
+config/description="한옥 뜰 안의 떡집·다방을 꾸리는 포근한 2D 경영 힐링 게임"
+config/version="0.1.0"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.png"
+boot_splash/bg_color=Color(0.984314, 0.945098, 0.878431, 1)
+boot_splash/show_image=false
+
+[autoload]
+
+GameState="*res://scripts/GameState.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=540
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[gui]
+
+theme/custom="res://assets/ui/theme.tres"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.976471, 0.933333, 0.854902, 1)

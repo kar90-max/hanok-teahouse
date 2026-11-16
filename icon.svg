@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#faf0db"/>
+  <!-- 한옥 지붕 -->
+  <path d="M40 214c26-52 84-92 216-92s190 40 216 92c-24 10-38-2-52-10-26-14-92-28-164-28s-138 14-164 28c-14 8-28 20-52 10z" fill="#4a4238"/>
+  <path d="M40 214c-10 6-16 14-18 24 14-8 30-10 44-12z" fill="#4a4238"/>
+  <path d="M472 214c10 6 16 14 18 24-14-8-30-10-44-12z" fill="#4a4238"/>
+  <!-- 기둥 -->
+  <rect x="96" y="232" width="26" height="150" fill="#b97a3c"/>
+  <rect x="390" y="232" width="26" height="150" fill="#b97a3c"/>
+  <!-- 처마/창 -->
+  <rect x="118" y="232" width="276" height="30" fill="#d89a55"/>
+  <rect x="134" y="262" width="244" height="96" fill="#f6e6c4" stroke="#8a5a2b" stroke-width="6"/>
+  <line x1="196" y1="262" x2="196" y2="358" stroke="#8a5a2b" stroke-width="5"/>
+  <line x1="258" y1="262" x2="258" y2="358" stroke="#8a5a2b" stroke-width="5"/>
+  <line x1="320" y1="262" x2="320" y2="358" stroke="#8a5a2b" stroke-width="5"/>
+  <!-- 상 -->
+  <rect x="120" y="358" width="272" height="26" fill="#c98b46" stroke="#7a4d23" stroke-width="5"/>
+  <!-- 떡시루 -->
+  <ellipse cx="256" cy="408" rx="86" ry="20" fill="#e0b070"/>
+  <path d="M170 404h172v34a86 20 0 0 1-172 0z" fill="#d79a52"/>
+  <circle cx="222" cy="392" r="20" fill="#9bbf5a"/>
+  <circle cx="266" cy="388" r="22" fill="#f6efe0"/>
+  <circle cx="308" cy="394" r="18" fill="#e79aa0"/>
+  <!-- 김 -->
+  <path d="M204 348c-10-14 6-20 0-34" stroke="#ffffff" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <path d="M256 340c-10-16 8-22 0-38" stroke="#ffffff" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <path d="M308 348c-10-14 6-20 0-34" stroke="#ffffff" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.85"/>
+</svg>

@@ -1,0 +1,11 @@
+# Godot 4.3 / Android
+.godot/
+build/
+export/
+*.apk
+*.aab
+*.keystore
+
+# 개발용 임시 산출물
+shot_*.png
+/tmp/
